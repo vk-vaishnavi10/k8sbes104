@@ -32,17 +32,10 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf().disable()
             .authorizeHttpRequests()
-            .antMatchers(
-                "/auth/**",
-                "/api/products/**",
-                "/api/payments/**",
-                "/back1/**" // ✅ Correct quote and clean syntax
-            ).permitAll()
+            .antMatchers("/auth/**", "/api/products/**", "/api/payments/**", "/back1/**").permitAll()
             .anyRequest().authenticated()
             .and()
-            .sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         return http.build();
     }
 
