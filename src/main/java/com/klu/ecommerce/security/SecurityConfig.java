@@ -36,7 +36,7 @@ public class SecurityConfig {
                 "/auth/**",
                 "/api/products/**",
                 "/api/payments/**",
-                "/back1/**"  // ✅ Added correctly and quoted properly
+                "/back1/**" // ✅ Correct quote and clean syntax
             ).permitAll()
             .anyRequest().authenticated()
             .and()
@@ -77,3 +77,4 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+
